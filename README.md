@@ -73,3 +73,4 @@ What follows is the original `installation.txt` from the author:
     
     
 ```
+Copyright ©2001-2010 by Alessandro Ghignola
