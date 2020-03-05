@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>
+  Postline left side navigation frame
+</title>
+<style type="text/css">
+<!--
+  body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background-color: #c4c0c8;
+    background-image: url(../images/gadgets/l.png);
+    background-position: right center;
+    background-repeat: repeat-y;
+  }
+  img {
+    width: 24px;
+    height: 24px;
+    border: 0px solid;
+    behavior: url(../behaviors/iepngfix.htc);
+  }
+  .slot {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+  }
+-->
+</style>
+<script type="text/javascript" src="../js/layout_controls.js">
+</script>
+<script language="javascript">
+<!--
+  function alignBackground (n) {
+    var t = - yOfFrame (n);
+    document.body.style.background = '#aaa url(../images/gadgets/l.png) repeat-y scroll right ' + t + 'px';
+    setTimeout ('alignBackground (\'' + n + '\')', 10000);
+  }
+//-->
+</script>
+</head>
+<body onLoad = "alignBackground (self.name)">
+<div class="slot" style="top: 10px">
+  <a target="pst" href="../../side.php?si=intro" title="quick search, landmarks, and places of interest">
+    <img src="../images/gadgets/ls/compact/directions.png" alt="directions.png (a pole holding three roadsigns)">
+  </a>
+</div>
+<div class="slot" style="top: 50px">
+  <a target="pst" href="../../mstats.php" title="accounts registration, log in, and log out">
+    <img src="../images/gadgets/ls/compact/login.png" alt="login.png (a standard on-off icon)">
+  </a>
+</div>
+<div class="slot" style="top: 90px">
+  <a target="pst" href="../../profile.php?nick=i74" title="access your profile">
+    <img src="../images/gadgets/ls/compact/profile.png" alt="profile.png (pawprint)">
+  </a>
+</div>
+<div class="slot" style="top: 130px">
+  <a target="pst" href="../../inbox.php" title="go to your private messages' inbox">
+    <img src="../images/gadgets/ls/compact/inbox.png" alt="inbox.png (a letter surmounted by two opposite arrows)">
+  </a>
+</div>
+<div class="slot" style="top: 170px">
+  <a target="pst" href="../../onlines.php" title="detailed list of logged-in members and guests">
+    <img src="../images/gadgets/ls/compact/onlines.png" alt="onlines.png (sticky man followed by question mark)">
+  </a>
+</div>
+<div class="slot" style="top: 210px">
+  <a target="pst" href="../../recdisc.php" title="list of recent messages posted in these forums">
+    <img src="../images/gadgets/ls/compact/recdisc.png" alt="recdisc.png (a set of rows with a star)">
+  </a>
+</div>
+<div class="slot" style="top: 250px">
+  <a target="pst" href="../../cdisk.php" title="download from, or upload files to, the community disk">
+    <img src="../images/gadgets/ls/compact/cdisk.png" alt="cdisk.png (a hard disk's plate)">
+  </a>
+</div>
+<div class="slot" style="top: 290px">
+  <a target="pst" href="../../search.php" title="find messages and past conversations by keyword">
+    <img src="../images/gadgets/ls/compact/search.png" alt="search.png (a magnifier examining dots aligned on a straight line)">
+  </a>
+</div>
+<div class="slot" style="top: 330px">
+  <a target="pst" href="../../kprefs.php" title="set site preferences">
+    <img src="../images/gadgets/ls/compact/settings.png" alt="settings.png (a couple tools)">
+  </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>
+  Postline left-side frameset expansion
+</title>
+<style type="text/css">
+<!--
+  body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background-color: #aaa;
+  }
+  div {
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/gadgets/down.gif);
+    background-position: center -1px;
+    background-repeat: no-repeat;
+  }
+-->
+</style>
+<script type="text/javascript" src="../js/layout_controls.js">
+</script>
+<script language="javascript">
+<!--
+  function alignBackground (n) {
+    var t = - yOfFrame (n);
+    document.body.style.background = '#aaa url(../images/gadgets/l.png) repeat-y scroll right ' + t + 'px';
+    setTimeout ('alignBackground (\'' + n + '\')', 10000);
+  }
+  function mlScrollStart () {
+    parent._ml.scrollBy (0, 5);
+    timeoutObject = setTimeout ('mlScrollStart ()', 25);
+  }
+  function mlScrollStop () {
+    clearTimeout (timeoutObject);
+  }
+//-->
+</script>
+</head>
+<body onLoad = "alignBackground (self.name)">
+<div onMouseOver = "mlScrollStart ()" onMouseOut = "mlScrollStop ()">
+</div>
+</body>
+</html>

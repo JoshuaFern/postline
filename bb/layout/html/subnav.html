@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>
+  Postline chat toggle control frame
+</title>
+<style type="text/css">
+<!--
+  body, html {
+    height: 15px;
+    background-color: #000;
+    overflow: hidden;
+  }
+  body, div {
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+    font: 10px/14px 'microsoft sans serif', sans-serif;
+  }
+  a:link, a:active, a:visited, a:hover {
+    color: #242028;
+    text-decoration: none;
+  }
+  .ctc {
+    height: 14px;
+    background-color: #C4C0C8;
+  }
+  .control, .l1, .l2, .l3, .l4, .l5, .l6, .l7 {
+    height: 14px;
+    position: absolute;
+    background-image: url(../images/gadgets/edge.gif);
+    background-position: top right;
+    background-repeat: repeat-y;
+    text-align: center;
+  }
+  .control {
+    width: 227px;
+    left: 1px;
+  }
+  .subnav {
+    width: 518px;
+    height: 14px;
+    position: absolute;
+    left: 228px;
+  }
+  .l1, .l2, .l3, .l4, .l5, .l6, .l7 {
+    width: 74px;
+  }
+  .l1 {
+    left: 0;
+    background-color: #D4D0D8;
+  }
+  .l2 {
+    left: 74px;
+    background-color: #E4E0E8;
+  }
+  .l3 {
+    left: 148px;
+    background-color: #F4F0F8;
+  }
+  .l4 {
+    left: 222px;
+    background-color: #E8E4EC;
+  }
+  .l5 {
+    left: 296px;
+    background-color: #E0DCE4;
+  }
+  .l6 {
+    left: 370px;
+    background-color: #D8D4DC;
+  }
+  .l7 {
+    left: 444px;
+  }
+  .edge {
+    width: 1px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    background-color: #000;
+  }
+-->
+</style>
+<script type="text/javascript" src="../js/layout_controls.js">
+</script>
+</head>
+<body onload="setTimeout ('verifyChatState ()', 500)">
+<div class="ctc">
+  <div class="control">
+    <a id="linktext" href="javascript: toggleChat ()">
+      <!--SHOW CHAT FRAME-->
+    </a>
+  </div>
+  <div class="subnav">
+    <div class="l1">
+      <a target="pan" href="../../intro.php" title="site introduction and welcome page">
+        HOME
+      </a>
+    </div>
+    <div class="l2">
+      <a target="pan" href="../../faq.php" title="how this place works, and frequently asked questions">
+        HELP
+      </a>
+    </div>
+    <div class="l3">
+      <a target="pan" href="../../forums.php" title="index of all our forums">
+        FORUMS
+      </a>
+    </div>
+    <div class="l4">
+      <a target="pan" href="../../members.php?present=i74" title="registered members directory">
+        MEMBERS
+      </a>
+    </div>
+    <div class="l5">
+      <a target="pan" href="../../authlist.php" title="support, management, administration, moderation, keeping things at work">
+        STAFF
+      </a>
+    </div>
+    <div class="l6">
+      <a target="pan" href="../../logs.php" title="everything everyone ever said here">
+        LOGS
+      </a>
+    </div>
+    <div class="l7">
+      <a target="pan" href="../../tellme.php" title="tell something to the staff">
+        FEEDBACK
+      </a>
+    </div>
+  </div>
+</div>
+<div class="edge">
+</div>
+</body>
+</html>

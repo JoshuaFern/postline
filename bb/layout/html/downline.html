@@ -1,0 +1,405 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--[
+
+    template variables name markup, or what certain prefixes mean
+    =============================================================
+
+        C = container, ie. placeholder for an out-of-line module
+        F = flag-like entry, which may be included or not, depending on circumstances
+        H = necessary HTML part (always included and only to be replaced by an actual value)
+        M = out-of-line module, which replaces its C placeholder
+        P = tag/class property, argument, or string - whitespaces and newlines trimmed on sides
+
+    declaration of out-of-line modules
+    ==================================
+
+        /*--M_LOCKED--*/
+          background-image: url(layout/images/gadgets/downline/syslock.gif);
+          background-position: right 1px;
+        /*--/M_LOCKED--*/
+
+        /*--M_UNLOCKED--*/
+          background-image: url(layout/images/gadgets/downline/shadow.gif);
+          background-position: 227px 0;
+        /*--/M_UNLOCKED--*/
+
+        /*--M_ALONE--*/
+          <a class="entry" style="color: #000"
+             href="javascript: alert ('It means nobody browsed one of our pages recently, except you.')">
+            YOU'RE ALONE HERE.
+          </a>
+        /*--/M_ALONE--*/
+
+        /*--M_USERS_COUNT--*/
+          <a class="entry" style="color: #000"
+             href="javascript: alert ('The total number of visitors who recently browsed one of our pages.')">
+            /*--P_COUNT--*/?/*--/P_COUNT--*/ ONLINE:
+          </a>
+        /*--/M_USERS_COUNT--*/
+
+        /*--M_USERS_COUNT_APART--*/
+          <a class="entry" style="color: #000"
+             href="javascript: alert ('Number of visitors who recently browsed one of our pages, not including you.')">
+            /*--P_COUNT--*/?/*--/P_COUNT--*/ ONLINE:
+          </a>
+        /*--/M_USERS_COUNT_APART--*/
+
+        /*--M_NOGUESTS--*/
+          <a class="entry" style="color: #000"
+             href="javascript: alert ('It means there are no unregistered visitors online.')">
+            NO GUESTS
+          </a>
+        /*--/M_NOGUESTS--*/
+
+        /*--M_NOGUESTS_GUEST--*/
+          <a class="entry" style="color: #000"
+             href="javascript: alert ('It means there are no unregistered visitors online, apart from you.')">
+            NO OTHER GUESTS
+          </a>
+        /*--/M_NOGUESTS_GUEST--*/
+
+        /*--M_GUESTS_COUNT--*/
+          <a class="entry" style="color: #000"
+             href="javascript: alert ('These are unregistered visitors.')">
+            /*--P_COUNT--*/?/*--/P_COUNT--*/ UNKNOWN
+          </a>
+        /*--/M_GUESTS_COUNT--*/
+
+        /*--M_GUESTS_COUNT_GUEST--*/
+          <a class="entry" style="color: #000"
+             href="javascript: alert ('These are unregistered visitors: this counter includes all of them except you.')">
+            /*--P_COUNT--*/?/*--/P_COUNT--*/ UNKNOWN
+          </a>
+        /*--/M_GUESTS_COUNT_GUEST--*/
+
+        /*--M_LIST_ENTRY--*/
+          ,
+          <a target="pst" class="entry" title="view profile"
+             href="/*--P_ENTRY_HREF--*/#/*--/P_ENTRY_HREF--*/"
+             style="color: /*--P_ENTRY_COLOR--*/#000/*--/P_ENTRY_COLOR--*/">
+            /*--H_ENTRY--*/
+              ...
+            /*--/H_ENTRY--*/
+          </a>
+          /*--F_SIG_CHAT--*/<span class="signal">&#x25CF;</span>/*--/F_SIG_CHAT--*/
+          /*--F_SIG_AFK--*/<span class="signal">&#x2020;</span>/*--/F_SIG_AFK--*/
+        /*--/M_LIST_ENTRY--*/
+
+        /*--M_GUEST_ENTRY--*/
+          ,
+          <a class="entry" style="color: #000"
+             href="javascript: alert ('A known guest: often, a search engine spider.')">
+            /*--H_ENTRY--*/
+              ...
+            /*--/H_ENTRY--*/
+          </a>
+        /*--/M_GUEST_ENTRY--*/
+
+        /*--M_MORE--*/
+          <a class="entry" style="color: #000"
+             href="javascript: alert ('There\'s more: click \'who is online\' for a more detailed list.')">
+            ...
+          </a>
+        /*--/M_MORE--*/
+
+    note:
+    all "inline" portions not being handled by the PHP script in charge of assembling this page
+    are supposed to be directly inserted in this template file, as part of its HTML.
+
+]--->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>
+  Postline status line
+</title>
+<style type="text/css">
+<!--
+  body {
+    background-color: #000;
+  }
+  body, div {
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  img {
+    position: relative;
+    top: 20px;
+    width: 32px;
+    height: 32px;
+    border: 0 solid;
+    behavior: url(layout/behaviors/iepngfix.htc);
+  }
+  .nav {
+    height: 23px;
+    position: relative;
+    top: 1px;
+    background-color: #E4E0E8;
+    /*--C_LOCKED--*/
+    /*--/C_LOCKED--*/
+    /*--C_UNLOCKED--*/
+      background-image: url(layout/images/gadgets/downline/shadow.gif);
+      background-position: 228px 0;
+    /*--/C_UNLOCKED--*/
+    background-repeat: repeat-y;
+    line-height: 100%;
+  }
+  .cart {
+    position: absolute;
+    top: 7px;
+    left: 5px;
+    z-index: 1;
+  }
+  .slot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 228px;
+    height: 23px;
+    background-color: #C4C0C8;
+    background-image: url(layout/images/gadgets/edge.gif);
+    background-position: right;
+    background-repeat: repeat-y;
+  }
+  .floor {
+    height: 23px;
+    position: relative;
+    top: 2px;
+    background-color: #696966;
+    background-image: url(layout/images/gadgets/downline/z.png);
+    background-position: top center;
+  }
+  .online_members_list {
+    position: absolute;
+    top: 6px;
+    left: 234px;
+    white-space: nowrap;
+    max-width: 560px;
+    font: 11px 'microsoft sans serif', sans-serif;
+    line-height: 14px;
+  }
+  a:link, a:active, a:visited, a:hover {
+    text-decoration: none;
+  }
+  a.entry:link, a.entry:active, a.entry:visited, a.entry:hover {
+    color: #000;
+  }
+  /*--F_SIGNALS--*/
+    .signal {
+      position: relative;
+      top: -1px;
+      left: -3px;
+      letter-spacing: -4px;
+      color: #000;
+      font: 12px 'microsoft sans serif', sans-serif;
+      line-height: 1px;
+    }
+  /*--/F_SIGNALS--*/
+  /*--F_WARNINGS--*/
+    a.warn:link, a.warn:active, a.warn:visited {
+      position: relative;
+      top: -22px;
+      margin-right: 10px;
+      color: #000;
+      font: italic 14px georgia, serif;
+      line-height: 14px;
+    }
+    a.warn:hover {
+      color: #646464;
+    }
+  /*--/F_WARNINGS--*/
+  /*--F_RSVD_CSS--*/
+    .rsvd {
+      height: 23px;
+      position: absolute;
+      top: 0;
+      right: 80px;
+      overflow: hidden;
+    }
+  /*--/F_RSVD_CSS--*/
+  .clock {
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    padding: 0 5px 0 5px;
+    border: 1px solid #000;
+    background-color: #E4FFE8;
+    color: #000;
+    font: 12px 'courier new', monospace;
+    line-height: 15px;
+  }
+  .edge {
+    width: 1px;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    background-color: #000;
+  }
+-->
+</style>
+<script language="Javascript" type="text/javascript">
+<!--
+  var ms = 1;                                                   // pm warning visibility status
+  function blinkMsg () {                                        // void if no new private messages
+    /*--F_HAVEMAIL_SCRIPT--*/
+      var x;
+      var s;
+      ms = 1 - ms;
+      if (ms == 1) {
+        s = 'visible';
+      }
+      else {
+        s = 'hidden';
+      }
+      if (document.layers) {
+        document.layers['call'].visibility = s;
+      }
+      else {
+        if (document.all) {
+          eval ('document.all.call.style.visibility=s');
+        }
+        else {
+          if (document.getElementById) {
+            x = document.getElementById ('mail');
+            x.style.visibility = s;
+          }
+        }
+      }
+      setTimeout ('blinkMsg ()', 500);
+    /*--/F_HAVEMAIL_SCRIPT--*/
+  }
+  var cs = 1;                                                   // intercom call visibility status
+  function blinkCall () {                                       // void if intercom is missing
+    /*--F_INTERCOM_SCRIPT--*/
+      var x;
+      var s;
+      cs = 1 - cs;
+      if (cs == 1) {
+        s = 'visible';
+      }
+      else {
+        s = 'hidden';
+      }
+      if (document.layers) {
+        document.layers['call'].visibility = s;
+      }
+      else {
+        if (document.all) {
+          eval ('document.all.call.style.visibility=s');
+        }
+        else {
+          if (document.getElementById) {
+            x = document.getElementById ('call');
+            x.style.visibility = s;
+          }
+        }
+      }
+      setTimeout ('blinkCall ()', 500);
+    /*--/F_INTERCOM_SCRIPT--*/
+  }
+  function update () {
+    document.location = 'downline.php?js=on';
+  }
+  function pageStart () {
+    setTimeout ('update ()', 60000);
+    setTimeout ('blinkMsg ()', 500);
+    setTimeout ('blinkCall ()', 500);
+  }
+  function tipOnClock () {
+    alert
+      (
+        'The clock displays the current server time, and it will keep doing it, '
+      + 'since this status line is automatically updated once per minute.'
+      );
+  }
+-->
+</script>
+</head>
+<body onload="pageStart ()">
+<div class="nav">
+  <div class="slot">
+  </div>
+  <div class="cart">
+    <!--F_HAVEMAIL-->
+      <a target="pst" class="warn" href="inbox.php" title="click here to go to your inbox and read new message(s)">
+        <img id="mail" src="layout/images/gadgets/downline/newmail.png" alt="newmail.png (a letter with a star upon)">
+        You Have Mail
+      </a>
+    <!--/F_HAVEMAIL-->
+    <!--F_INTERCOM-->
+      <a target="pan" class="warn" href="/*--P_INTERCOM_HREF--*/#/*--/P_INTERCOM_HREF--*/" title="new post in hidden forum (click here to go straight to it)">
+        <img id="call" src="layout/images/gadgets/downline/intercom.png" alt="intercom.png (an exclamation mark surrounded by a circle)">
+        FYEO
+      </a>
+    <!--/F_INTERCOM-->
+  </div>
+</div>
+<div class="online_members_list">
+  <!--C_ALONE-->
+  <!--/C_ALONE-->
+  <!--C_USERS_COUNT-->
+    <a class="entry" style="color: #000"
+       href="javascript: alert ('The total number of visitors who recently browsed one of our pages.')">
+      1 online:
+    </a>
+  <!--/C_USERS_COUNT-->
+  <!--C_USERS_COUNT_APART-->
+  <!--/C_USERS_COUNT_APART-->
+  <!--C_NOGUESTS-->
+    <a class="entry" style="color: #000"
+       href="javascript: alert ('It means there are no unregistered visitors online.')">
+      no guests
+    </a>
+  <!--/C_NOGUESTS-->
+  <!--C_NOGUESTS_GUEST-->
+  <!--/C_NOGUESTS_GUEST-->
+  <!--C_GUESTS_COUNT-->
+  <!--/C_GUESTS_COUNT-->
+  <!--C_GUESTS_COUNT_GUEST-->
+  <!--/C_GUESTS_COUNT_GUEST-->
+  <!--C_LIST-->
+    ,
+    <a class="entry" style="color: #000" href="javascript: alert ('this is a sample nickname')">
+      you
+    </a>
+    <span class="signal">
+      &#x25CF;
+    </span>
+    <span class="signal">
+      &#x2020;
+    </span>
+    ,
+    <a class="entry" style="color: #000"
+       href="javascript: alert ('A known guest: often, a search engine spider.')">
+      someguest
+    </a>
+  <!--/C_LIST-->
+</div>
+<div class="floor">
+  <div class="clock" onclick="tipOnClock ()">
+    <span title="current server time">
+      <!--H_CLOCK-->
+        00:00
+      <!--/H_CLOCK-->
+    </span>
+  </div>
+  <!--F_RSVD-->
+  <div class="rsvd">
+    <a target="pan" href="errlist.php">
+      <img src="layout/images/gadgets/downline/errlist.png" style="top: 0; width: 24px; height: 24px">
+    </a>
+    <a target="pst" href="defense.php">
+      <img src="layout/images/gadgets/downline/staff.png" style="top: 0; width: 24px; height: 24px">
+    </a>
+    <a target="pan" href="explorer.php">
+      <img src="layout/images/gadgets/downline/explorer.png" style="top: 0; width: 24px; height: 24px">
+    </a>
+  </div>
+  <!--/F_RSVD-->
+</div>
+<div class="edge">
+</div>
+</body>
+</html>

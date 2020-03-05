@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>
+  Postline left side navigation frame
+</title>
+<style type="text/css">
+<!--
+  body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background-color: #c4c0c8;
+  }
+  img {
+    width: 32px;
+    height: 32px;
+    border: 0px solid;
+    behavior: url(../behaviors/iepngfix.htc);
+  }
+  a:link, a:active, a:visited, a:hover {
+    position: relative;
+    top: 8px;
+    text-decoration: none;
+    color: black;
+  }
+  .slot {
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    right: 0px;
+    font: 10px 'microsoft sans serif', sans-serif;
+    line-height: 12px;
+    text-align: center;
+  }
+-->
+</style>
+<script type="text/javascript" src="../js/layout_controls.js">
+</script>
+<script language="javascript">
+<!--
+  function alignBackground (n) {
+    var t = - yOfFrame (n);
+    document.body.style.background = '#aaa url(../images/gadgets/l.png) repeat-y scroll right ' + t + 'px';
+    setTimeout ('alignBackground (\'' + n + '\')', 10000);
+  }
+//-->
+</script>
+</head>
+<body onLoad = "alignBackground (self.name)">
+<div class="slot" style="top: 0px">
+  <a target="pst" href="../../side.php?si=intro" title="quick search, landmarks, and places of interest">
+    <img src="../images/gadgets/ls/directions.png" alt="directions.png (a pole holding three roadsigns)"><br>
+    directions
+  </a>
+</div>
+<div class="slot" style="top: 55px">
+  <a target="pst" href="../../mstats.php" title="accounts registration, log in, and log out">
+    <img src="../images/gadgets/ls/login.png" alt="login.png (a standard on-off icon)"><br>
+    log&nbsp;in, register
+  </a>
+</div>
+<div class="slot" style="top: 122px">
+  <a target="pst" href="../../profile.php?nick=i74" title="access your profile">
+    <img src="../images/gadgets/ls/profile.png" alt="profile.png (pawprint)"><br>
+    my profile
+  </a>
+</div>
+<div class="slot" style="top: 177px">
+  <a target="pst" href="../../inbox.php" title="go to your private messages' inbox">
+    <img src="../images/gadgets/ls/inbox.png" alt="inbox.png (a letter surmounted by two opposite arrows)"><br>
+    my inbox
+  </a>
+</div>
+<div class="slot" style="top: 232px">
+  <a target="pst" href="../../onlines.php" title="detailed list of logged-in members and guests">
+    <img src="../images/gadgets/ls/onlines.png" alt="onlines.png (sticky man followed by question mark)"><br>
+    who is online?
+  </a>
+</div>
+<div class="slot" style="top: 299px">
+  <a target="pst" href="../../recdisc.php" title="list of recent messages posted in these forums">
+    <img src="../images/gadgets/ls/recdisc.png" alt="recdisc.png (a set of rows with a star)"><br>
+    recent posts
+  </a>
+</div>
+<div class="slot" style="top: 366px">
+  <a target="pst" href="../../cdisk.php" title="download from, or upload files to, the community disk">
+    <img src="../images/gadgets/ls/cdisk.png" alt="cdisk.png (a hard disk's plate)"><br>
+    c-disk
+  </a>
+</div>
+<div class="slot" style="top: 421px">
+  <a target="pst" href="../../search.php" title="find messages and past conversations by keyword">
+    <img src="../images/gadgets/ls/search.png" alt="search.png (a magnifier examining dots aligned on a straight line)"><br>
+    search
+  </a>
+</div>
+<div class="slot" style="top: 476px">
+  <a target="pst" href="../../kprefs.php" title="set site preferences">
+    <img src="../images/gadgets/ls/settings.png" alt="settings.png (a couple tools)"><br>
+    settings
+  </a>
+</div>
+</body>
+</html>

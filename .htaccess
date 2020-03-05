@@ -1,0 +1,99 @@
+#
+#       root index redirect
+#
+
+  Redirect permanent /index.html        http://localhost/bb/layout/html/frameset.html
+  Redirect permanent /index.php         http://localhost/bb/layout/html/frameset.html
+
+#
+#       postline permalinks : factory redirects that involve an argument
+#
+
+  RewriteEngine on
+  RewriteBase   /
+
+  RewriteRule   ^about/([a-zA-Z0-9]+)$  http://localhost/bb/layout/html/frameset.html?l=6t4hGqqgGEdhacS61Uve6M1_$1&r=OmDgidHhUEdhacS6MLWerxQgfM1_$1       [R=301,NE,L]
+  RewriteRule   ^forum/([0-9]+)$        http://localhost/bb/layout/html/frameset.html?l=lYUhCL3ho8g3l3hh9gr6_$1&r=toHhnBIeUEdhacS61M1_$1                  [R=301,NE,L]
+  RewriteRule   ^thread/([0-9]+)$       http://localhost/bb/layout/html/frameset.html?l=lYUhCL3ho8g3l3hhX4s6_$1&r=lYUhcug3l3hhX4s6_$1                     [R=301,NE,L]
+  RewriteRule   ^message/([0-9]+)$      http://localhost/bb/layout/html/frameset.html?l=zFvenCUhEEdh8L4&r=5oUh4Y7i39AfX8Bgu_$1                            [R=301,NE,L]
+  RewriteRule   ^zips/([a-zA-Z0-9]+)$   http://localhost/bb/layout/html/frameset.html?l=TCMf91g3l3hhYsQgjkteCpljR1Vhg_$1.zip&r=858iEfg3l3hh               [R=301,NE,L]
+  RewriteRule   ^gzs/([a-zA-Z0-9]+)$    http://localhost/bb/layout/html/frameset.html?l=TCMf91g3l3hhYsQgjktevbjfPEt3_$1.gz&r=858iEfg3l3hh                 [R=301,NE,L]
+  RewriteRule   ^rars/([a-zA-Z0-9]+)$   http://localhost/bb/layout/html/frameset.html?l=TCMf91g3l3hhYsQgjktem3EhZ8Vhg_$1.rar&r=858iEfg3l3hh               [R=301,NE,L]
+  RewriteRule   ^7zs/([a-zA-Z0-9]+)$    http://localhost/bb/layout/html/frameset.html?l=TCMf91g3l3hhYsQgjkteX175PEt3_$1.7z&r=858iEfg3l3hh                 [R=301,NE,L]
+
+#
+#       postline permalinks : secondary navigation bar factory redirects
+#
+
+  Redirect permanent /home              http://localhost/bb/layout/html/doors/factory/frameset_home.html
+  Redirect permanent /help              http://localhost/bb/layout/html/doors/factory/frameset_help.html
+  Redirect permanent /forums            http://localhost/bb/layout/html/doors/factory/frameset_forums.html
+  Redirect permanent /members           http://localhost/bb/layout/html/doors/factory/frameset_members.html
+  Redirect permanent /staff             http://localhost/bb/layout/html/doors/factory/frameset_staff.html
+  Redirect permanent /logs              http://localhost/bb/layout/html/doors/factory/frameset_logs.html
+  Redirect permanent /feedback          http://localhost/bb/layout/html/doors/factory/frameset_feedback.html
+
+#
+#       new local redirects
+#
+
+  Redirect permanent /linoleum          http://localhost/bb/layout/html/doors/local/frameset_linoleum.html
+  Redirect permanent /noctis            http://localhost/bb/layout/html/doors/local/frameset_noctis.html
+# Redirect permanent /gate              http://localhost/bb/layout/html/doors/local/frameset_gate.html
+  Redirect permanent /software          http://localhost/bb/layout/html/doors/local/frameset_software.html
+  Redirect permanent /projects          http://localhost/bb/layout/html/doors/local/frameset_projects.html
+  Redirect permanent /links             http://localhost/bb/layout/html/doors/local/frameset_links.html
+  Redirect permanent /news              http://localhost/bb/layout/html/doors/local/frameset_news.html
+
+#
+#       legacy redirects taking old links to destination
+#
+
+  Redirect permanent /linoleum.html     http://localhost/bb/layout/html/doors/local/frameset_linoleum.html
+  Redirect permanent /noctis.html       http://localhost/bb/layout/html/doors/local/frameset_noctis.html
+# Redirect permanent /avatar.html       http://localhost/bb/layout/html/doors/local/frameset_gate.html
+  Redirect permanent /software.html     http://localhost/bb/layout/html/doors/local/frameset_software.html
+  Redirect permanent /projects.html     http://localhost/bb/layout/html/doors/local/frameset_projects.html
+  Redirect permanent /links.html        http://localhost/bb/layout/html/doors/local/frameset_links.html
+  Redirect permanent /news.html         http://localhost/bb/layout/html/doors/local/frameset_news.html
+  Redirect permanent /tellalex.html     http://localhost/bb/layout/html/doors/factory/frameset_feedback.html
+
+  Redirect permanent /postline/         http://localhost/bb/
+  Redirect permanent /bb/images/        http://localhost/bb/layout/images/
+  Redirect permanent /linoleum.zip      http://localhost/zips/linoleum.zip
+  Redirect permanent /postline.zip      http://localhost/bb/cd/postline.zip
+
+#
+#       custom error pages and errors tracking:
+#
+#       both optionals, custom error page models reside in 'errors' folder,
+#       and are referred by the first line of each pair; the second line
+#       enables error tracking in Postline for the relevant error code, which
+#       may help tracking (failed) intrusion attempts and the IP of the
+#       offender; both lines are mutually exclusive: enable either one or
+#       the other, but not both lines together (i.e. keep one commented out)
+#
+
+# ErrorDocument 400 /errors/400.html
+  ErrorDocument 400 /bb/error.php?code=400
+
+# ErrorDocument 401 /errors/401.html
+  ErrorDocument 401 /bb/error.php?code=401
+
+# ErrorDocument 403 /errors/403.html
+  ErrorDocument 403 /bb/error.php?code=403
+
+# ErrorDocument 404 /errors/404.html
+  ErrorDocument 404 /bb/error.php?code=404
+
+# ErrorDocument 500 /errors/500.html
+  ErrorDocument 500 /bb/error.php?code=500
+
+#
+#       Mary Lou's rickrolling link:
+#
+#       see 'onlines.php'; to disable this prank, disable entry linking to 'secret.html'
+#       in that script, then disable the following line (comment it out or delete it)
+#
+
+  Redirect permanent /secret.html       http://www.youtube.com/watch?v=EK2tWVj6lXw

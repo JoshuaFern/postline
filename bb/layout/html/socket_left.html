@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>
+  Postline left-side frameset expansion
+</title>
+<style type="text/css">
+<!--
+  body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background-color: #aaa;
+  }
+-->
+</style>
+<script type="text/javascript" src="../js/layout_controls.js">
+</script>
+<script language="javascript">
+<!--
+  function alignBackground (n) {
+    var t = - yOfFrame (n);
+    document.body.style.background = '#aaa url(../images/gadgets/l.png) repeat-y scroll right ' + t + 'px';
+    setTimeout ('alignBackground (\'' + n + '\')', 10000);
+  }
+//-->
+</script>
+</head>
+<body onLoad = "alignBackground (self.name)">
+</body>
+</html>
