@@ -1,5 +1,7 @@
 # «Postline»
-### BB and CMS of anynowhere.com
+### BB and CMS of AnyNowhere.com
+
+AnyNowhere is a website providing bulletin boards for discussion, as well as several software projects including the space exploration game Noctis and the programming language L.in.oleum. The source code of the website was released freely, and this repository serves as a mirror in case the original goes down.
 
 What follows is the original `installation.txt` from the author:
 
@@ -73,4 +75,6 @@ What follows is the original `installation.txt` from the author:
     
     
 ```
-Copyright ©2001-2010 by Alessandro Ghignola
+And the orignal download text from the AnyNowhere website:
+
+"The source code of this bulletin board and content management system, by the name of «Postline», and in the form of a set of PHP scripts and additional graphics parts, is Copyright ©2001-2010 by Alessandro Ghignola, and is distributed under GNU General Public License. The entire source code can be downloaded free of charge by clicking this link."
