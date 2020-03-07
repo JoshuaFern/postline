@@ -77,4 +77,4 @@ What follows is the original `installation.txt` from the author:
 ```
 And the orignal download text from the AnyNowhere website:
 
-"The source code of this bulletin board and content management system, by the name of «Postline», and in the form of a set of PHP scripts and additional graphics parts, is Copyright ©2001-2010 by Alessandro Ghignola, and is distributed under GNU General Public License. The entire source code can be downloaded free of charge by clicking this link."
+>The source code of this bulletin board and content management system, by the name of «Postline», and in the form of a set of PHP scripts and additional graphics parts, is Copyright ©2001-2010 by Alessandro Ghignola, and is distributed under GNU General Public License. The entire source code can be downloaded free of charge by clicking this link.
